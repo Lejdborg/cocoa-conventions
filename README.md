@@ -16,15 +16,19 @@ _This styleguide is based on [GitHub's Objective-C conventions](https://github.c
 * Comments should be hard-wrapped at 80 characters.
 * Use `#pragma mark`s to categorize methods into functional groupings and protocol implementations, following this general structure:
 
-    // -----------------------------------------------------------------------------
-    #pragma mark - TABLE VIEW DELEGATE
-    // -----------------------------------------------------------------------------
+```objc
+// -----------------------------------------------------------------------------
+#pragma mark - TABLE VIEW DELEGATE
+// -----------------------------------------------------------------------------
+```
 
 * Use the same groupings in header files, but format them according as AppleDoc:
 
-    /// ----------------------------------------------------------------------------
-    /// @name Table View Delegate
-    /// ----------------------------------------------------------------------------
+```objc
+/// ----------------------------------------------------------------------------
+/// @name Table View Delegate
+/// ----------------------------------------------------------------------------
+```
 
 ## Declarations
 
@@ -33,34 +37,46 @@ _This styleguide is based on [GitHub's Objective-C conventions](https://github.c
 * Don't use `@synthesize` unless the compiler requires it. Note that optional properties in protocols must be explicitly synthesized in order to exist.
 * Instance variables should be prefixed with an underscore (just like when implicitly synthesized).
 * Don't put a space between an object type and the protocol it conforms to.
- 
-    @property (attributes) id<Protocol> object;
+
+```objc
+@property (attributes) id<Protocol> object;
+```
  
 * C function declarations should have no space before the opening parenthesis, and should be namespaced just like a class.
 
-    void NMAwesomeFunction(BOOL hasSomeArgs);
+```objc
+void NMAwesomeFunction(BOOL hasSomeArgs);
+```
 
 ## Expressions
 
 * Don't access an ivar unless you're in `-init`, `-dealloc` or a custom accessor.
 * Use dot-syntax for getters, but not setters:
- 
-    [self.manager setDelegate:self];
+
+```objc
+[self.manager setDelegate:self];
+```
 
 * Use object literals, boxed expressions, and subscripting over the older, grosser alternatives.
 * Comparisons should be explicit for everything except `BOOL`s.
 * Prefer positive comparisons to negative.
 * Long form ternary operators should be wrapped in parentheses and only used for assignment and arguments.
 
-    Blah *a = (stuff == thing ? foo : bar);
+```objc
+Blah *a = (stuff == thing ? foo : bar);
+```
 
 * Short form, `nil` coalescing ternary operators should avoid parentheses.
 
-    Blah *b = thingThatCouldBeNil ?: defaultValue;
+```objc
+Blah *b = thingThatCouldBeNil ?: defaultValue;
+```
 
 * There shouldn't be a space between a cast and the variable being cast.
 
-    NewType a = (NewType)b;
+```objc
+NewType a = (NewType)b;
+```
 
 ## Control Structures
 
@@ -71,12 +87,14 @@ _This styleguide is based on [GitHub's Objective-C conventions](https://github.c
 * Return and break early.
 * No spaces between parentheses and their contents.
 
-    if (something == nil) {
-        // do stuff
-    }
-    else {
-        // do other stuff
-    }
+```objc
+if (something == nil) {
+    // do stuff
+}
+else {
+    // do other stuff
+}
+```
 
 ## Literals
 
@@ -84,16 +102,20 @@ _This styleguide is based on [GitHub's Objective-C conventions](https://github.c
 * The contents of array and dictionary literals should have a space on both sides.
 * Dictionary literals should have no space between the key and the colon, and a single space between colon and value.
 
-    NSArray *numbers = @[ @1, @2, @3 ];
-    NSDictionary *prefs = @{ @"FollowConventions": @YES };
+```objc
+NSArray *numbers = @[ @1, @2, @3 ];
+NSDictionary *prefs = @{ @"FollowConventions": @YES };
+```
 
 * Longer or more complex literals should be split over multiple lines (and never have a terminating comma):
 
-    NSArray *theShit = @[
-        @"Lorem ipsum and stuff...",
-        @"And the quick brown fox",
-        @"They should be friends"
-    ];
+```objc
+NSArray *theShit = @[
+    @"Lorem ipsum and stuff...",
+    @"And the quick brown fox",
+    @"They should be friends"
+];
+```
 
 ## Categories
 
